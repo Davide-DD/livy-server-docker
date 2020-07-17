@@ -24,6 +24,7 @@ RUN apt-get update -y && apt-get install -y \
 
 COPY init /opt/docker-init
 COPY conf/livy.conf /opt/livy/conf/livy.conf
+COPY conf/log4j.properties /opt/spark/conf/log4j.properties
 
 # expose ports
 EXPOSE 8998

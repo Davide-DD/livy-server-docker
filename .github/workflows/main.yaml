@@ -11,6 +11,7 @@ jobs:
     strategy:
       matrix:
         spark:
+          - 2.4.6
           - 2.4.5
           - 2.4.4
           - 2.4.3
@@ -51,7 +52,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: davlum/livy
+          repository: d3tech/livy
           build_args: SPARK_VERSION=${{ matrix.spark }},LIVY_VERSION=${{ matrix.livy }},APACHE=${{ steps.apache.outputs.path }}
           tags: ${{ matrix.livy }}-spark${{ matrix.spark }}
 

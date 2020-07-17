@@ -28,21 +28,18 @@ function write_config_options(){
 }
 
 
-function livy_server_service(){
+function livy_server_service() {
     export SPARK_HOME=/opt/spark
+    touch /tmp/spark.log
     echo "starting Livy Server!"
     /opt/livy/bin/livy-server start
-
-    # whatever blocking call 
-    tail -f /dev/null
+    tail -f /tmp/spark.log
 }
 
 function main(){
     validate
     write_config_options /opt/livy/conf/livy.conf
     livy_server_service
-    start 
-    echo "done. now waiting for services."
 }
 
 main

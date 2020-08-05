@@ -1,10 +1,10 @@
 # select operating system
-FROM python:3.7-buster
+FROM python:3.7-stretch
 
 ARG SPARK_VERSION
 ARG LIVY_VERSION
 
-ENV LOCAL_DIR_WHITELIST /tmp/
+ENV LOCAL_DIR_WHITELIST /opt/spark/elaborations
 
 RUN apt-get update -y && apt-get install -y \
     default-jre-headless \

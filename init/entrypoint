@@ -30,6 +30,7 @@ function write_config_options(){
 
 function livy_server_service() {
     export SPARK_HOME=/opt/spark
+    mkdir -p /opt/spark/elaborations
     touch /tmp/spark.log
     echo "starting Livy Server!"
     /opt/livy/bin/livy-server start
